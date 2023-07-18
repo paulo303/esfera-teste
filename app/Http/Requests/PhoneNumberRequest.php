@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PhoneNumberRequest extends FormRequest
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             'user_id' => ['required', 'integer'],
@@ -14,7 +14,7 @@ class PhoneNumberRequest extends FormRequest
         ];
     }
 
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
