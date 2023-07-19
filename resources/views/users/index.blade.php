@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Usuários') }}
+            Usuários
         </h2>
     </x-slot>
 
@@ -94,8 +94,6 @@
     @push('scripts')
         <script>
             $(function() {
-                // $('.phone_numbers').inputmask('(999)-999-9999');
-
                 $('.addPhoneButton').on('click', function() {
                     let newPhoneNumber = $(".phone_number").val();
                     let phoneFields = '<div class="flex items-center grid grid-cols-2 mt-4">' +
@@ -111,44 +109,6 @@
                 $(document).on('click', '.removePhoneButton', function() {
                     $(this).parent().remove();
                 });
-                
-                {{--$(".editUserButton").on('click', function(event) {--}}
-                {{--    event.preventDefault();--}}
-                {{--    let id = $(this).data('id');--}}
-                {{--    let url = '{{ route('users.edit', ['user' => '_id_']) }}'.replace('_id_', id);--}}
-
-                {{--    $.ajax({--}}
-                {{--        url: url,--}}
-                {{--        beforeSend: function() {--}}
-                {{--            $('#loader').show();--}}
-                {{--        },--}}
-                {{--        // return the result--}}
-                {{--        success: function(result) {--}}
-                {{--            $('#mediumModal').modal("show");--}}
-                {{--            $('#mediumBody').html(result).show();--}}
-                {{--        },--}}
-                {{--        complete: function() {--}}
-                {{--            $('#loader').hide();--}}
-                {{--        },--}}
-                {{--        error: function(jqXHR, testStatus, error) {--}}
-                {{--            console.log(error);--}}
-                {{--            alert("Page " + href + " cannot open. Error:" + error);--}}
-                {{--            $('#loader').hide();--}}
-                {{--        },--}}
-                {{--        timeout: 8000--}}
-                {{--    })--}}
-                {{--    --}}
-                {{--    --}}{{--let id = $(this).data('id');--}}
-                {{--    --}}{{--let name = $(this).data('name');--}}
-                {{--    --}}{{--let email = $(this).data('email');--}}
-                {{--    --}}{{--let role_id = $(this).data('role_id');--}}
-                {{--    --}}{{--let url = '{{ route('users.update', ['user' => '_id_']) }}'.replace('_id_', id);--}}
-                {{--    --}}
-                {{--    --}}{{--$("#editUserForm #name").val(name);--}}
-                {{--    --}}{{--$("#editUserForm #email").val(email);--}}
-                {{--    --}}{{--$("#editUserForm #role_id").val(role_id);--}}
-                {{--    --}}{{--$("#editUserForm").attr('action', url);--}}
-                {{--});--}}
             });
         </script>
     @endpush
