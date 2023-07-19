@@ -4,7 +4,7 @@
             Cadastrar usuário
         </h4>
 
-        <form action="{{ route('users.store') }}" method="POST">
+        <form id="createUserForm" action="{{ route('users.store') }}" method="POST">
             @csrf
             <div class="grid gap-4 grid-cols-1 md:grid-cols-3">
                 <div>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             
-            <x-primary-button type="submit" class="mt-4">Salvar</x-primary-button>
+            <x-primary-button for="createUserForm" id="createUserSubmitButton" type="submit" class="mt-4">Salvar</x-primary-button>
         </form>
 
     </div>

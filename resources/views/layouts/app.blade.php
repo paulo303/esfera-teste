@@ -10,7 +10,8 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -33,6 +34,8 @@
             </main>
         </div>
         <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/inputmask/inputmask.min.js') }}"></script>
+        <script src="{{ asset('js/inputmask/jquery.inputmask.min.js') }}"></script>
         <script>
             $(document).ready(function() {
                 @if(session()->has('success'))
