@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PhoneNumber extends Model
+class Phone extends Model
 {
     protected $fillable = [
         'user_id',
-        'numero',
+        'phone_number',
     ];
 
     public function user(): BelongsTo

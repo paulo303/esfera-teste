@@ -1,6 +1,6 @@
 <?php
 
-use App\Providers\RouteServiceProvider;
+use App\Models\Role;
 
 test('registration screen can be rendered', function () {
     $response = $this->get('/register');
@@ -14,8 +14,9 @@ test('new users can register', function () {
         'email'                 => 'test@example.com',
         'password'              => 'password',
         'password_confirmation' => 'password',
+        'role_id'               => Role::USER,
     ]);
 
     $this->assertAuthenticated();
-    $response->assertRedirect(RouteServiceProvider::HOME);
+    $response->assertRedirect(route('users.index'));
 });
