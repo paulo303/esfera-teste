@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\{RedirectResponse, Request};
 use Illuminate\Support\Facades\DB;
+use Log;
 
 class UserController extends Controller
 {
@@ -38,6 +39,7 @@ class UserController extends Controller
 
         } catch (Exception $e) {
             DB::Rollback();
+            Log::error('Failed to create user: ' . $e->getMessage());
 
             return to_route('users.index')->with('danger', 'Falha ao criar usuário!');
         }

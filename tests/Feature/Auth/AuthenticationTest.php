@@ -3,6 +3,11 @@
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 
+use function Pest\Laravel\seed;
+
+beforeEach(function () {
+    seed('RoleSeeder');
+});
 test('login screen can be rendered', function () {
     $response = $this->get('/login');
 

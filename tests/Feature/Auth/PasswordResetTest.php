@@ -4,6 +4,12 @@ use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
 
+use function Pest\Laravel\seed;
+
+beforeEach(function () {
+    seed('RoleSeeder');
+});
+
 test('reset password link screen can be rendered', function () {
     $response = $this->get('/forgot-password');
 

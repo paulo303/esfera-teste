@@ -3,6 +3,12 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
+use function Pest\Laravel\seed;
+
+beforeEach(function () {
+    seed();
+
+});
 test('password can be updated', function () {
     $user = User::factory()->create();
 

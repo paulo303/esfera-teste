@@ -15,12 +15,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoleSeeder::class);
 
-        User::factory()->hasPhoneNumbers(2)->create([
+        User::factory()->hasPhoneNumbers()->create([
             'name'    => 'Administrador',
             'email'   => 'admin@email.com',
             'role_id' => Role::ADMIN,
         ]);
 
-        User::factory(2)->hasPhoneNumbers(2)->create();
+        User::factory()->hasPhoneNumbers(2)->create();
+        User::factory()->hasPhoneNumbers()->create();
     }
 }

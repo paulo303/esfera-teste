@@ -2,6 +2,12 @@
 
 use App\Models\User;
 
+use function Pest\Laravel\seed;
+
+beforeEach(function () {
+    seed('RoleSeeder');
+});
+
 test('profile page is displayed', function () {
     $user = User::factory()->create();
 
@@ -62,9 +68,10 @@ test('user can delete their account', function () {
     $response
         ->assertSessionHasNoErrors()
         ->assertRedirect('/');
+    $user->fresh();
 
     $this->assertGuest();
-    $this->assertNull($user->fresh());
+    $this->assertSoftDeleted('users', ['id' => $user->id]);
 });
 
 test('correct password must be provided to delete account', function () {

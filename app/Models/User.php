@@ -17,7 +17,7 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
 
-    protected $perPage = 10;
+    protected $perPage = 5;
 
     protected $fillable = [
         'name',

@@ -2,6 +2,12 @@
 
 use App\Models\Role;
 
+use function Pest\Laravel\seed;
+
+beforeEach(function () {
+    seed();
+
+});
 test('registration screen can be rendered', function () {
     $response = $this->get('/register');
 

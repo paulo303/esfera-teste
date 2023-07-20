@@ -5,6 +5,12 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\{Event, URL};
 
+use function Pest\Laravel\seed;
+
+beforeEach(function () {
+    seed('RoleSeeder');
+});
+
 test('email verification screen can be rendered', function () {
     $user = User::factory()->create([
         'email_verified_at' => null,
