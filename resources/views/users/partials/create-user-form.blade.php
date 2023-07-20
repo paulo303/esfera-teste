@@ -1,3 +1,18 @@
+<script>
+    const handlePhone = (event) => {
+        let input = event.target
+        input.value = phoneMask(input.value)
+    }
+
+
+    const phoneMask = (value) => {
+        if (!value) return ""
+        value = value.replace(/\D/g,'')
+        value = value.replace(/(\d{2})(\d)/,"($1) $2")
+        value = value.replace(/(\d)(\d{4})$/,"$1-$2")
+        return value
+    }
+</script>
 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
     <div class="p-6 text-gray-900 dark:text-gray-100">
         <h4 class="text-2xl font-bold dark:text-white mb-4">
@@ -27,7 +42,7 @@
             <!-- Campos dos números de telefone -->
             <div class="grid gap-4 grid-cols-1 sd:grid-cols-3 mt-4">
                 <div class="flex items-center" id="divAddNewPhoneNumber">
-                    <x-form.input label="Digite o telefone e clique em adicionar" name="phone_numbers[]" class="phone_number"/>
+                    <x-form.input label="Telefone (apenas números)" name="phone_numbers[]" placeholder="(11) 99999-9999" class="phone_number" type="tel" maxlength="15" onkeyup="handlePhone(event)"/>
                     <button type="button" class="addPhoneButton text-left ml-4 mt-3">Adicionar outro número</button>
                 </div>
             </div>

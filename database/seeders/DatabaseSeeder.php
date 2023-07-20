@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
 
         User::factory()->hasPhoneNumbers(2)->create([
-            'name'    => 'Paulo Cavalcanti',
-            'email'   => 'paulocavalcanti303@gmail.com',
+            'name'    => 'Administrador',
+            'email'   => 'admin@email.com',
             'role_id' => Role::ADMIN,
         ]);
 
-        User::factory()->hasPhoneNumbers(2)->create();
+        User::factory(2)->hasPhoneNumbers(2)->create();
     }
 }
