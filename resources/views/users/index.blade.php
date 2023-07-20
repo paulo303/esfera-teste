@@ -71,19 +71,10 @@
     @push('scripts')
         <script>
             $(function () {
-                function validatePhone() {
-                    let newPhoneNumber = $(".phone_number").val();
-
-                    if (newPhoneNumber.length < 14) {
-                        return false;
-                    }
-                    return $(".phone_number").inputmask("isComplete");
-                }
-
                 $('.addPhoneButton').on('click', function () {
                     let newPhoneNumber = $(".phone_number").val();
 
-                    if (!validatePhone()) {
+                    if (newPhoneNumber.length < 14) {
                         alert("Telefone inválido! Preencha corretamente.");
                         return false;
                     }
@@ -103,7 +94,9 @@
                 });
 
                 $(document).on('submit', '#createUserForm', function (event) {
-                    if (!validatePhone()) {
+                    let newPhoneNumber = $(".phone_number").val();
+
+                    if (newPhoneNumber.length < 14 && newPhoneNumber.length > 0) {
                         alert("Telefone inválido! Preencha corretamente.");
                         event.preventDefault();
                     }
