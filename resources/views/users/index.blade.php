@@ -4,7 +4,7 @@
             Usuários
         </h2>
     </x-slot>
-    
+
     <x-container-page>
         @can('create', \App\Models\User::class)
             @include('users.partials.create-user-form')
@@ -72,6 +72,11 @@
         <script>
             $(function () {
                 function validatePhone() {
+                    let newPhoneNumber = $(".phone_number").val();
+
+                    if (newPhoneNumber.length < 14) {
+                        return false;
+                    }
                     return $(".phone_number").inputmask("isComplete");
                 }
 
@@ -108,7 +113,7 @@
                     let id = $(this).data('id');
                     let name = $(this).data('name');
                     let url = '{{ route('users.destroy', ['user' => '_id_']) }}'.replace('_id_', id);
-                    
+
                     $("#deleteUserForm").attr('action', url);
                     $("#user-name").text(name);
                 })

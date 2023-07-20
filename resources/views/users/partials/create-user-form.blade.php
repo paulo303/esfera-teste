@@ -43,7 +43,7 @@
             <div class="grid gap-4 grid-cols-1 sd:grid-cols-3 mt-4">
                 <div class="flex items-center" id="divAddNewPhoneNumber">
                     <x-form.input label="Telefone (apenas números)" name="phone_numbers[]" placeholder="(11) 99999-9999" class="phone_number" type="tel" maxlength="15" onkeyup="handlePhone(event)"/>
-                    <button type="button" class="addPhoneButton text-left ml-4 mt-3">Adicionar outro número</button>
+                    <x-secondary-button class="addPhoneButton text-left ml-4 mt-3" >Adicionar outro número</x-secondary-button>
                 </div>
             </div>
 
@@ -51,7 +51,7 @@
                 <div id="phone_numbers_container">
                 </div>
             </div>
-            
+
             <x-primary-button for="createUserForm" id="createUserSubmitButton" type="submit" class="mt-4">Salvar</x-primary-button>
         </form>
 
